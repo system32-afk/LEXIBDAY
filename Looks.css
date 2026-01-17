@@ -1,0 +1,200 @@
+.sacramento-regular {
+  font-family: "Sacramento", cursive;
+  /* font-weight: 400; */
+  font-style: normal;
+}
+
+
+body {
+  background-color: #AB96FF;
+}
+
+.cake {
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  margin-top: -70px;
+  margin-left: -125px;
+}
+
+.plate {
+  width: 270px;
+  height: 110px;
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 0 rgb(178.5, 178.5, 178.5), 0 4px 0 rgb(178.5, 178.5, 178.5), 0 5px 40px rgba(0, 0, 0, 0.5);
+}
+
+.cake > * {
+  position: absolute;
+}
+
+.layer {
+  position: absolute;
+  display: block;
+  width: 250px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 0px rgb(255, 255, 255), 0 4px 0px rgb(143.6897169811, 26.4902830189, 41.7422641509), 0 6px 0px rgb(142.828490566, 26.331509434, 41.4920754717), 0 8px 0px rgb(141.9672641509, 26.1727358491, 41.2418867925), 0 10px 0px rgb(141.1060377358, 26.0139622642, 40.9916981132), 0 12px 0px rgb(140.2448113208, 25.8551886792, 40.741509434), 0 14px 0px rgb(139.3835849057, 25.6964150943, 40.4913207547), 0 16px 0px rgb(138.5223584906, 25.5376415094, 40.2411320755), 0 18px 0px rgb(137.6611320755, 25.3788679245, 39.9909433962), 0 20px 0px rgb(136.7999056604, 25.2200943396, 39.740754717), 0 22px 0px rgb(135.9386792453, 25.0613207547, 39.4905660377), 0 24px 0px rgb(135.0774528302, 24.9025471698, 39.2403773585), 0 26px 0px rgb(134.2162264151, 24.7437735849, 38.9901886792), 0 28px 0px rgb(133.355, 24.585, 38.74), 0 30px 0px rgb(132.4937735849, 24.4262264151, 38.4898113208);
+}
+
+.layer-top {
+  top: 0px;
+}
+
+.layer-middle {
+  top: 33px;
+}
+
+.layer-bottom {
+  top: 66px;
+}
+
+.icing {
+  top: 2px;
+  left: 5px;
+  background-color: #ffffff;
+  width: 240px;
+  height: 90px;
+  border-radius: 50%;
+}
+.icing:before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  bottom: 6px;
+  left: 5px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 4px rgb(255, 255, 255), 0 0 4px rgb(246.1693548387, 239.1048387097, 227.3306451613), 0 0 4px rgb(246.1693548387, 239.1048387097, 227.3306451613);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.drip {
+  display: block;
+  width: 50px;
+  height: 60px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color: #ffffff;
+}
+
+.drip1 {
+  top: 53px;
+  left: 5px;
+  transform: skewY(15deg);
+  height: 48px;
+  width: 40px;
+}
+
+.drip2 {
+  top: 69px;
+  left: 181px;
+  transform: skewY(-15deg);
+}
+
+.drip3 {
+  top: 54px;
+  left: 90px;
+  width: 80px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.candle {
+  background-color: #eaeaea;
+  width: 16px;
+  height: 50px;
+  border-radius: 8px/4px;
+  top: -20px;
+  left: 50%;
+  margin-left: -8px;
+  z-index: 10;
+}
+.candle:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+}
+
+.flame {
+  position: absolute;
+  background-color: orange;
+  width: 15px;
+  height: 35px;
+  border-radius: 10px 10px 10px 10px/25px 25px 10px 10px;
+  top: -34px;
+  left: 50%;
+  margin-left: -7.5px;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+  transform-origin: 50% 90%;
+  animation: flicker 1s ease-in-out alternate infinite;
+}
+
+@keyframes flicker {
+  0% {
+    transform: skewX(5deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.2), 0 0 20px rgba(255, 165, 0, 0.2), 0 0 60px rgba(255, 165, 0, 0.2), 0 0 80px rgba(255, 165, 0, 0.2);
+  }
+  25% {
+    transform: skewX(-5deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+  }
+  50% {
+    transform: skewX(10deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.3), 0 0 20px rgba(255, 165, 0, 0.3), 0 0 60px rgba(255, 165, 0, 0.3), 0 0 80px rgba(255, 165, 0, 0.3);
+  }
+  75% {
+    transform: skewX(-10deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.4), 0 0 20px rgba(255, 165, 0, 0.4), 0 0 60px rgba(255, 165, 0, 0.4), 0 0 80px rgba(255, 165, 0, 0.4);
+  }
+  100% {
+    transform: skewX(5deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+  }
+}
+
+@keyframes flameOut {
+  0% {
+    transform: scale(1) skewX(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.6) skewX(-10deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(0) skewX(20deg);
+    opacity: 0;
+  }
+}
+
+.flame.out {
+  animation: flameOut 0.6s ease-out forwards;
+}
+
+
+.Greeting{
+  font-family: 'Sacramento', cursive;
+  color: #ffd500;
+  font-size: 4rem;
+  text-shadow: 0 2px 3px #ffd50080;
+  letter-spacing: 8px; /* adjust to taste */
+  
+  
+ 
+  text-align: center;
+}
