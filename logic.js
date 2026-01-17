@@ -31,7 +31,7 @@ function detectBlow() {
   const volume = sum / dataArray.length;
 
   // 🔥 Adjust this threshold if needed
-  if (volume > 80 && !blowing) {
+  if (volume > 74 && !blowing) {
     blowing = true;
     console.log("blow detected")
     flame.style.transform = `scale(${1 + volume / 120}) skewX(${(volume - 30) / 4}deg)`;
