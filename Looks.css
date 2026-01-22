@@ -364,6 +364,10 @@ h2.Greeting {
 }
 
 
-
+@media (max-width: 480px) {
+  .envelope-wrapper {
+    top: 58%;
+  }
+}
 
 
