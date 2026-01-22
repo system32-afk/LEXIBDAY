@@ -5,18 +5,21 @@ let dataArray;
 let blowing = false;
 const BLOW_THRESHOLD = 67; // adjust if needed
 const STABILIZE_DELAY = 200; // ms
-
+const env = document.querySelector(".envelope-wrapper");
 const flame = document.getElementById("flame");
 const cake = document.querySelector(".cake");
 
 // ----- Function to blow out the candle -----
 function blowOutCandle() {
   if (!flame) return;
-
+  
   flame.classList.add("out"); // make flame animate out
   setTimeout(() => {
     flame.style.display = "none";
   }, 600);
+
+  // show envelope
+  env.classList.add("show");
 }
 
 // ----- Function to start mic -----
@@ -70,4 +73,30 @@ cake.addEventListener("click", async () => {
   if (flame) flame.style.opacity = "1"; // light flame if hidden
   await startMic();
 });
+
+
+const envelope = document.querySelector('.envelope-wrapper');
+let isOpen = false;
+const letter = document.querySelector(".letter");
+
+envelope.addEventListener("click", () => {
+  if (!isOpen) {
+    envelope.classList.add("flap");
+    letter.classList.remove("hide");
+    letter.classList.add("show");
+    isOpen = true;
+  } else {
+    envelope.classList.remove("flap");
+    letter.classList.remove("show");
+    letter.classList.add("hide");
+    isOpen = false;
+  }
+
+  console.log("isOpen:", isOpen);
+});
+
+
+
+
+
 

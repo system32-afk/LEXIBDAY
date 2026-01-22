@@ -32,6 +32,7 @@ body {
 
 .cake > * {
   position: absolute;
+  z-index: 5;
 }
 
 .layer {
@@ -190,11 +191,179 @@ body {
 .Greeting{
   font-family: 'Sacramento', cursive;
   color: #ffd500;
-  font-size: 4rem;
+  font-size: clamp(3rem, 6vw, 4rem);
   text-shadow: 0 2px 3px #ffd50080;
-  letter-spacing: 8px; /* adjust to taste */
-  
-  
- 
+  letter-spacing: clamp(2px, 1vw, 8px);
   text-align: center;
+  line-height: 1.1;
 }
+
+h2.Greeting {
+  font-size: clamp(2.5rem, 4.5vw, 2.2rem);
+  letter-spacing: clamp(1px, 0.8vw, 4px);
+}
+
+
+
+:root {
+  --bg-envelope-color: #fdf5e6;     /* wrapper background */
+  --shadow-color: rgba(0,0,0,0.2);  /* soft shadow */
+  --envelope-tab: #ffe0b2;           /* the triangle flap */
+  --envelope-cover: #ffcc80;         /* the envelope body */
+  --primary: #fff;                   /* the letter background */
+  --txt-color: #333;                 /* letter text */
+  --heart-color: #ff416c;            /* heart */
+}
+
+
+.container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+
+.envelope-wrapper.show{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -60%); /* subtle float up */
+}
+
+.envelope-wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20; /* higher than cake */
+  
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 3s ease, transform 3s ease;
+}
+
+.container > .envelope-wrapper {
+  background: var(--bg-envelope-color);
+  box-shadow: 0 0 40px var(--shadow-color);
+}
+.envelope-wrapper > .envelope {
+  position: relative;
+  width: 350px;
+  height: 250px;
+}
+.envelope-wrapper > .envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  border-top: 130px solid var(--envelope-tab);
+  border-right: 175px solid transparent;
+  border-left: 175px solid transparent;
+  transform-origin: top;
+  transition: all 0.5s ease-in-out 0.7s;
+}
+.envelope-wrapper > .envelope::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 0px;
+  height: 0px;
+  border-top: 130px solid transparent;
+  border-right: 175px solid var(--envelope-cover);
+  border-bottom: 120px solid var(--envelope-cover);
+  border-left: 175px solid var(--envelope-cover);
+}
+.sincerely {
+  text-align: right;
+}
+
+.envelope > .letter {
+  position: absolute;
+  right: 20%;
+  bottom: 0;
+  width: 54%;
+  height: 120%;
+  background: var(--primary);
+  text-align: center;
+  transition: all 1s ease-in-out;
+  box-shadow: 0 0 5px var(--shadow-color);
+  padding: 20px 10px;
+}
+
+.letter{
+  opacity: 0;
+}
+
+.letter.show{
+  opacity: 1;
+  transition-delay: 2s;
+}
+
+.letter.hide{
+  opacity: 0;
+  transition-delay: 0.01s;
+}
+
+.envelope > .letter > .text {
+  font-family: "Caveat", cursive;
+  font-style: normal;
+  color: var(--txt-color);
+  text-align: justify;
+  font-size: 11px;
+  padding-right: 2px;
+}
+
+.text strong {
+  font-size: 12px;
+}
+
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: var(--heart-color);
+  z-index: 4;
+  transform: translate(-50%, -20%) rotate(45deg);
+  transition: transform 0.5s ease-in-out 1s;
+  box-shadow: 0 1px 6px var(--shadow-color);
+  cursor: pointer;
+}
+.heart:before, 
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: var(--heart-color);
+  border-radius: 50%;
+}
+.heart:before {
+  top: -7.5px;
+}
+.heart:after {
+  right: 7.5px;
+}
+.flap > .envelope:before {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+.flap > .envelope > .letter {
+  bottom: 100px;
+  transform: scale(1.5);
+  transition-delay: 1s;
+}
+.flap > .heart {
+  transform: rotate(90deg);
+  transition-delay: 0.4s;
+}
+
+
+.envelope-wrapper{
+  position: absolute;
+}
+
+
+
+
+
